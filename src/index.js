@@ -23,6 +23,11 @@ function checksExistsUserAccount(request, response, next) {
 
 function checksCreateTodosUserAvailability(request, response, next) {
   // Complete aqui
+  const { user } = request;
+  if(!user.pro && user.todos.length === 10) {
+    return response.status(403).json({ error: 'subscribe to the pro plan to register more tasks'})
+  }
+  next();
 }
 
 function checksTodoExists(request, response, next) {
