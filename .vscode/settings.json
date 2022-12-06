@@ -1,2 +1,16 @@
 {
+  "git.enabled": false,
+  "files.exclude": {
+    ".editorconfig": true,
+    "jest.config.js":true,
+    "nodemon.json": true,
+    "node_modules": true,
+    "yarn*": true,
+    "setup*": true,
+    ".vscode": false,
+    ".gitignore": true,
+    "package.json": true,
+    "package-lock.json": true,
+    "public": true
+  }
 }
