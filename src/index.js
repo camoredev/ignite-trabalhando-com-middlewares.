@@ -44,7 +44,7 @@ function checksTodoExists(request, response, next) {
   const user = users.find((user) => user.todos.find((todo) => todo.id === id))
   if(!user) return response.status(404).json({error: 'todo not found'})
 
-  request.user = user
+  request.user = user 
   request.todo = user.todos.find((todo) => todo.id === id)
 
   next();
@@ -52,6 +52,12 @@ function checksTodoExists(request, response, next) {
 
 function findUserById(request, response, next) {
   // Complete aqui
+  const { id } = request.params;
+  const getUser = users.find((user) => user.id === id)
+  if(!getUser) return response.status(404).json({error: 'User not found'});
+
+  request.user = getUser;
+  next()
 }
 
 app.post('/users', (request, response) => {
